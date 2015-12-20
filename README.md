@@ -11,6 +11,7 @@ This module offers lathe and extrude components.
 
 * extrusion not working well yet. must review code
 * The path syntax is very incomplete. May support curveTo, split tokes by whitespace|comma|letterToNumber as path's d attr
+* once I get decent examples, update README markup and tables accordingly
 * support for extrude along path, maybe
 * no tests yet
 * will probably split the repos in two once both components work properly
