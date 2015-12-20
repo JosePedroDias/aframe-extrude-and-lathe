@@ -75,10 +75,10 @@ module.exports.extrudeComponent = {
   init: function() {},
 
   update: function(oldData) {
-    console.log('update',
+    /*console.log('update',
         '\noldData', oldData,
         '\nnewData', this.data,
-        '\nelement', this.el);
+        '\nelement', this.el);*/
 
     if (!oldData) {
       this.el.object3D.geometry = getExtrude(this.data);
