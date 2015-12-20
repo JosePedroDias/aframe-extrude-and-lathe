@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../build.js"></script>
+  </head>
+
+  <body>
+    <a-assets></a-assets>
+
+    <a-scene>
+
+      <!--<a-entity
+        geometry="primitive:sphere; radius:0.3"
+        material="color:#5F818A; shader:flat"
+        scale="1 1 -1"></a-entity>
+
+      <a-entity
+        geometry="primitive:box"
+        material="color:blue"></a-entity>-->
+
+        <a-entity
+          lathe="path:'m 0.1 0.3 l 0.3 -0.3 l -0.3 -0.3'"
+          material="color:green"></a-entity>
+
+       <!--<a-entity
+        lathe="path:'m 0.1 -0.3 l 0.3 0.3 l -0.3 0.3'; angle:90; steps:8"
+        material="color:red"></a-entity>-->
+
+        <a-entity
+          extrude="amount:2"
+          material="color:red; shader:flat"></a-entity>
+
+    </a-scene>
+  </body>
+</html>
