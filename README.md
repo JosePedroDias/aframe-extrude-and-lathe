@@ -9,10 +9,20 @@ This module offers lathe and extrude components.
 
 ### TODO
 
-* Even though apparently well written, neither extrusions nor lathes are rendering for now?!
+* must move the objects and scale them down or/and flip normals (currently one must move and look around to see example entities)
 * The path syntax is very incomplete. May support curveTo...
 * no tests yet
-* will probably split the repos in two once they work properly
+* will probably split the repos in two once both components work properly
+
+
+### Development
+
+    npm install
+    python -m SimpleHTTPServer 5566 &
+    cd examples
+    npm run build
+
+visit <http://127.0.0.1:5566/examples/basic/index.html>
 
 
 
@@ -56,7 +66,7 @@ Use.
 
 | Property | Description | Default Value |
 | -------- | ----------- | ------------- |
-| path     | define profile shape via syntax akin to [SVG path's d attribute](http://www.w3.org/TR/SVG/paths.html)            | `m -0.5 L 1`  |
+| path     | define profile shape via syntax akin to [SVG path's d attribute](http://www.w3.org/TR/SVG/paths.html)            | `m 0.1 -0.3 l 0.3 0.3 l -0.3 0.3`  |
 | startAngle   | start angle for the revolution   |    0 |
 | angle        | revolution angle (0>angle>360)   |  360 |
 | steps        | number of steps along the angle  |   16 |

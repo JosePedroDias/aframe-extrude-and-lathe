@@ -9,8 +9,15 @@ var DEG2RAD = Math.PI / 180;
 var getLathe = function(data) {
   // http://threejs.org/docs/#Reference/Extras.Geometries/LatheGeometry
   var shape = shapeFromPathString(data.path);
+  var points = shape.getPoints();
+  //console.log(points);
+  points = points.map(function(p) {
+    return new THREE.Vector3(p.x, 0, p.y); // TODO: support different axes
+  });
+  //console.log(points);
+
   return new THREE.LatheGeometry(
-    shape.getPoints(),         // points
+    points,                    // points
     data.steps,                // segments
     data.startAngle * DEG2RAD, // phi start
     data.angle      * DEG2RAD  // phi length
@@ -21,6 +28,7 @@ var getLathe = function(data) {
 
 var getExtrude = function(data) {
   // http://threejs.org/docs/#Reference/Extras.Geometries/ExtrudeGeometry
+  // http://threejs.org/examples/webgl_geometry_extrude_shapes2.html
   var shape = shapeFromPathString(data.path);
   return new THREE.ExtrudeGeometry(
     shape,
@@ -38,7 +46,7 @@ var getExtrude = function(data) {
  */
 module.exports.latheComponent = {
   schema: {
-    path       : { default:'m -0.5 L 1' },
+    path       : { default:'m 0.1 -0.3 l 0.3 0.3 l -0.3 0.3' },
     startAngle : { default:  0, min:0, max:360 },
     angle      : { default:360, min:0, max:360},
     steps      : { default: 16, min:1 }
@@ -53,7 +61,10 @@ module.exports.latheComponent = {
         '\nelement', this.el);*/
 
     if (!oldData) {
-      this.el.object3D.geometry = getLathe(this.data);
+      var geo = getLathe(this.data);
+      geo.computeFaceNormals();
+      geo.computeVertexNormals();
+      this.el.object3D.geometry = geo;
     }
   },
 
@@ -81,7 +92,10 @@ module.exports.extrudeComponent = {
         '\nelement', this.el);*/
 
     if (!oldData) {
-      this.el.object3D.geometry = getExtrude(this.data);
+        var geo = getExtrude(this.data);
+        geo.computeFaceNormals();
+        geo.computeVertexNormals();
+        this.el.object3D.geometry = geo;
     }
   },
 
