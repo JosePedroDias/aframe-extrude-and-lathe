@@ -9,8 +9,9 @@ This module offers lathe and extrude components.
 
 ### TODO
 
-* must move the objects and scale them down or/and flip normals (currently one must move and look around to see example entities)
-* The path syntax is very incomplete. May support curveTo...
+* extrusion not working well yet. must review code
+* The path syntax is very incomplete. May support curveTo, split tokes by whitespace|comma|letterToNumber as path's d attr
+* support for extrude along path, maybe
 * no tests yet
 * will probably split the repos in two once both components work properly
 

@@ -29,11 +29,15 @@ var getLathe = function(data) {
 var getExtrude = function(data) {
   // http://threejs.org/docs/#Reference/Extras.Geometries/ExtrudeGeometry
   // http://threejs.org/examples/webgl_geometry_extrude_shapes2.html
+  // http://stackoverflow.com/questions/25626171/threejs-extrudegeometry-depth-gives-different-result-than-extrudepath
   var shape = shapeFromPathString(data.path);
+  console.log(shape);
   return new THREE.ExtrudeGeometry(
     shape,
     {
-      amount: data.amount
+      amount       : data.amount,
+      steps        : 1,
+      bevelEnabled : false
     }
   );
 };
@@ -62,8 +66,6 @@ module.exports.latheComponent = {
 
     if (!oldData) {
       var geo = getLathe(this.data);
-      geo.computeFaceNormals();
-      geo.computeVertexNormals();
       this.el.object3D.geometry = geo;
     }
   },
@@ -93,8 +95,6 @@ module.exports.extrudeComponent = {
 
     if (!oldData) {
         var geo = getExtrude(this.data);
-        geo.computeFaceNormals();
-        geo.computeVertexNormals();
         this.el.object3D.geometry = geo;
     }
   },
