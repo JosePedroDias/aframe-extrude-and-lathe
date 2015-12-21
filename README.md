@@ -9,8 +9,6 @@ This module offers lathe and extrude components.
 
 ### TODO
 
-* extrusion not working well yet. must review code
-* The path syntax is very incomplete. May support curveTo, split tokes by whitespace|comma|letterToNumber as path's d attr
 * once I get decent examples, update README markup and tables accordingly
 * support for extrude along path, maybe
 * no tests yet
@@ -49,8 +47,16 @@ Use.
 
 ```html
 <a-scene>
-  <a-entity extrude="path:'m 0.1 0.3 l 0.3 -0.3 l -0.3 -0.3'; amount:1" material="color:blue"></a-entity>
-  <a-entity lathe="path:'m -0.5 L 1'" material="color:green"></a-entity>
+    <a-entity
+        extrude="path:'m0.1,0.1 l-0.2,0 l0,-0.2 l0.2,0 l0,0.2 z'; amount:0.05"
+        position="1 1 2"
+        material="color:#0A0"></a-entity>
+
+    <a-entity
+        lathe="path:'m0.1,-0.3 l0.3,0.3 l-0.3,0.3'; angle:5; steps:2"
+        position="-1 1 2"
+        rotation="90 0 0"
+        material="color:green"></a-entity>
 </a-scene>
 ```
 
@@ -60,7 +66,7 @@ Use.
 
 | Property | Description | Default Value |
 | -------- | ----------- | ------------- |
-| path     | define profile shape via syntax akin to [SVG path's d attribute](http://www.w3.org/TR/SVG/paths.html)            | `m 1 1 l -2 0 l 0 -2 l 2 0 l 0 2` |
+| path     | define profile shape via syntax akin to [SVG path's d attribute](http://www.w3.org/TR/SVG/paths.html)            | empty. must be defined  |
 | amount   | extension of extrusion |  1 |
 
 
@@ -68,7 +74,7 @@ Use.
 
 | Property | Description | Default Value |
 | -------- | ----------- | ------------- |
-| path     | define profile shape via syntax akin to [SVG path's d attribute](http://www.w3.org/TR/SVG/paths.html)            | `m 0.1 -0.3 l 0.3 0.3 l -0.3 0.3`  |
+| path     | define profile shape via syntax akin to [SVG path's d attribute](http://www.w3.org/TR/SVG/paths.html)            | empty. must be defined  |
 | startAngle   | start angle for the revolution   |    0 |
 | angle        | revolution angle (0>angle>360)   |  360 |
 | steps        | number of steps along the angle  |   16 |

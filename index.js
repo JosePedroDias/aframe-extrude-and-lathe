@@ -18,7 +18,7 @@ var getLathe = function(data) {
 
   return new THREE.LatheGeometry(
     points,                    // points
-    data.steps,                // segments
+    Math.round(data.steps),    // segments (round so it can be animated)
     data.startAngle * DEG2RAD, // phi start
     data.angle      * DEG2RAD  // phi length
   );
@@ -36,7 +36,7 @@ var getExtrude = function(data) {
     shape,
     {
       amount       : data.amount,
-      steps        : 1,
+      steps        : Math.round(data.steps),
       bevelEnabled : false
     }
   );
@@ -64,10 +64,10 @@ module.exports.latheComponent = {
         '\nnewData', this.data,
         '\nelement', this.el);*/
 
-    if (!oldData) {
+    //if (!oldData) {
       var geo = getLathe(this.data);
       this.el.object3D.geometry = geo;
-    }
+    //}
   },
 
   remove: function() {}
@@ -82,7 +82,8 @@ module.exports.latheComponent = {
 module.exports.extrudeComponent = {
   schema: {
     path   : { default:'m 1 1 l -2 0 l 0 -2 l 2 0 l 0 2' },
-    amount : { default:1, min:0 }
+    amount : { default:1, min:0 },
+    steps  : { default:1, min:1 }
   },
 
   init: function() {},
@@ -93,10 +94,10 @@ module.exports.extrudeComponent = {
         '\nnewData', this.data,
         '\nelement', this.el);*/
 
-    if (!oldData) {
+    //if (!oldData) {
         var geo = getExtrude(this.data);
         this.el.object3D.geometry = geo;
-    }
+    //}
   },
 
   remove: function() {}

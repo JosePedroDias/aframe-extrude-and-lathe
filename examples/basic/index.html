@@ -9,6 +9,10 @@
 
     <a-scene>
 
+        <a-entity
+            light="type:directional; color:#DDD"
+            position="-0.25 -0.8 0.5"></a-entity>
+
       <!--<a-entity
         geometry="primitive:sphere; radius:0.3"
         material="color:#5F818A; shader:flat"
@@ -19,10 +23,35 @@
         material="color:blue"></a-entity>-->
 
         <a-entity
-          lathe="path:'m0.1,-0.3 l0.3,0.3 l-0.3,0.3'"
+          lathe="path:'m0.1,-0.3 l0.3,0.3 l-0.3,0.3'; angle:5; steps:2"
           position="-1 1 2"
           rotation="90 0 0"
-          material="color:#A00"></a-entity>
+          material="color:#A00; metalness:1; roughness:0.8">
+          <a-animation
+              attribute="lathe.angle"
+              to="360"
+              easing="linear"
+              dur="2000"></a-animation>
+          <a-animation
+              attribute="lathe.steps"
+              to="36"
+              easing="linear"
+              dur="2000"></a-animation>
+        </a-entity>
+
+        <a-entity
+          lathe="path:'m0.4,0.1 l-0.2,0 l0,-0.2 l0.2,0 l0,0.2 z'; angle:5; steps:2"
+          position="0 1 2"
+          material="color:#AA0">
+          <a-animation
+              attribute="lathe.angle"
+              to="90"
+              dur="1000"></a-animation>
+          <a-animation
+              attribute="lathe.steps"
+              to="12"
+              dur="1000"></a-animation>
+        </a-entity>
 
         <a-entity
           extrude="path:'m0.1,0.1 l-0.2,0 l0,-0.2 l0.2,0 l0,0.2 z'; amount:0.05"
@@ -30,10 +59,17 @@
           material="color:#0A0"></a-entity>
 
           <a-entity
-            extrude="path:'m407,161c-95,-91 -46,138 -103,157c-57,19 -94,-50 -33,-66c61,-16 -88,-127 -10,-181c78,-54 197,-15 217,13c20,28 71,92 36,89c-35,-3 -74,75.33333 -81,42c-7,-33.33333 -21,-42.66667 -26,-54z'; amount:20"
-            position="1 1 2"
+            extrude="path:'m407,161c-95,-91 -46,138 -103,157c-57,19 -94,-50 -33,-66c61,-16 -88,-127 -10,-181c78,-54 197,-15 217,13c20,28 71,92 36,89c-35,-3 -74,75.33333 -81,42c-7,-33.33333 -21,-42.66667 -26,-54z'; amount:2"
+            position="-0.5 0 2"
             scale="0.01 0.01 0.01"
-            material="color:#00A"></a-entity>
+            material="color:#00A">
+
+            <a-animation
+                attribute="extrude.amount"
+                to="30"
+                easing="linear"
+                dur="2000"></a-animation>
+        </a-entity>
 
 
 
