@@ -9,8 +9,12 @@ This module offers lathe and extrude components.
 
 ### TODO
 
-* once I get decent examples, update README markup and tables accordingly
-* support for extrude along path, maybe
+* lathe
+    * close ends option (for angles < 360)
+    * choose lathe main axis
+* extrude
+    * expose bevel options
+    * extrude along path?
 * no tests yet
 * will probably split the repos in two once both components work properly
 
@@ -50,13 +54,13 @@ Use.
     <a-entity
         extrude="path:'m0.1,0.1 l-0.2,0 l0,-0.2 l0.2,0 l0,0.2 z'; amount:0.05"
         position="1 1 2"
-        material="color:#0A0"></a-entity>
+        material="color:blue"></a-entity>
 
     <a-entity
-        lathe="path:'m0.1,-0.3 l0.3,0.3 l-0.3,0.3'; angle:5; steps:2"
+        lathe="path:'m0.1,-0.3 l0.3,0 l0,0.3 l-0.3,0 z'; angle:360; steps:32"
         position="-1 1 2"
         rotation="90 0 0"
-        material="color:green"></a-entity>
+        material="color:green; side:double"></a-entity>
 </a-scene>
 ```
 

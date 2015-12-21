@@ -51,8 +51,8 @@ var getExtrude = function(data) {
 module.exports.latheComponent = {
   schema: {
     path       : { default:'m 0.1 -0.3 l 0.3 0.3 l -0.3 0.3' },
-    startAngle : { default:  0, min:0, max:360 },
-    angle      : { default:360, min:0, max:360},
+    startAngle : { default:  0, min:-360, max:360 },
+    angle      : { default:360, min:-360, max:360},
     steps      : { default: 16, min:1 }
   },
 
