@@ -4,11 +4,12 @@
   "description": "extrude and lathe components for aframevr",
   "main": "index.js",
   "scripts": {
+    "start": "http-server -c-1 -p 5566",
     "test": "karma start ./tests/karma.conf.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ngokevin/aframe-example-component.git"
+    "url": "git+https://github.com/JosePedroDias/aframe-example-component.git"
   },
   "keywords": [
     "aframe",
