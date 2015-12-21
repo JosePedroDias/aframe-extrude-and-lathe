@@ -1,6 +1,6 @@
 ## aframe extrude and lathe components
 
-Components for [A-Frame](https://aframe.io).  
+Components for [A-Frame](https://aframe.io).
 Based on [aframe-component-boilerplate](https://github.com/ngokevin/aframe-component-boilerplate).
 
 This module offers lathe and extrude components.
@@ -22,11 +22,12 @@ This module offers lathe and extrude components.
 ### Development
 
     npm install
-    python -m SimpleHTTPServer 5566 &
+    npm start
     cd examples
+    npm install
     npm run build
 
-visit <http://127.0.0.1:5566/examples/basic/index.html>
+Visit [http://127.0.0.1:5566/examples/basic/index.html](http://127.0.0.1:5566/examples/basic/index.html)
 
 
 
